@@ -8,11 +8,18 @@ public class Tile : MonoBehaviour
 {
     public GameObject map;
     public string type = "none"; // none, wall, obstacle, fire, lava, spa, cover point, heart, stage, summon point
-    public int X, Y;        //則是記格子的XY值，由座左上為(0, 0)，向右X值增加，向下Y值增加
+    public int X, Y;        //則是記格子的XY值，由座左上為(0, 0)，向右X值增加，向下Y值增加 
+    protected Tile pre_tile;  //行徑路徑的紀錄，播放移動動畫用，預設-1
     public int occupied, state;          //是否被角色佔據， 選擇時 0 是範圍外。 1是可移動位置。 2是攻擊目標。 3是技能目標。
     public Prototype stander;
     protected Vector3 pre_pos;   //這是記點擊瞬間mouse的座標
     protected bool click;
+
+
+    public Tile get_pre()
+    {
+        return pre_tile;
+    }
     void Update()
     {
         if (click)
@@ -29,11 +36,12 @@ public class Tile : MonoBehaviour
         X = x;
         Y = y;
         state = 0;
+        pre_tile = null;
         map = GameObject.Find("map_frame");
     }
 
 
-    public System.Func<int> action_select(int act_state, Color act_color)
+    public System.Func<int> action_select(int act_state, Color act_color, Tile previous)
     {                                //更改顏色，提供動作選擇(取消 0，移動 1，攻擊 2)
         if (type == "summon point")  //summon point不能走，也不會被攻擊，直接返回(同時不具任何阻擋效果，因此不在路徑探索時做處理)
         {
@@ -41,6 +49,7 @@ public class Tile : MonoBehaviour
         }
         gameObject.GetComponent<SpriteRenderer>().color = act_color;
         state = act_state;
+        pre_tile = previous;
         return end_select;
     }
 
@@ -64,13 +73,20 @@ public class Tile : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 0.35f);
         }
+        else if (state == 2)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.6792f, 0.1249f, 0.1249f, 0.5f);
+        }
         return;
     }
     void OnMouseDown()           //滑鼠按下瞬間進入監聽，設置click為true，調整顏色
     {
         pre_pos = Input.mousePosition;
         gameObject.GetComponent<SpriteRenderer>().material = map.GetComponent<Tiles>().change;
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 0.7f);
+        if (state > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 0.7f);
+        }
         click = true;
         WaitUP();
         return;
@@ -93,6 +109,7 @@ public class Tile : MonoBehaviour
     {                                               //回傳給Tiles，待呼叫的還原函式
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 0f);
         state = 0;
+        pre_tile = null;
         return 1;
     }
 

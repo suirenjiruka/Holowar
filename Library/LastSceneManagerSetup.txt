@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Resources/Pixel_Art_Top_Down-Basic/Scenes/Log in page.unity
+- path: Assets/Resources/Pixel_Art_Top_Down-Basic/Scenes/Game_map_0.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

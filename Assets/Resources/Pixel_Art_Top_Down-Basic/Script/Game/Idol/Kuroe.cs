@@ -20,7 +20,4 @@ public class Kuroe : Prototype
         belong = 2;
         moving_rate = 0.01f;
     }
-
-    // Update is called once per frame
-
 }

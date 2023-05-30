@@ -80,7 +80,7 @@ public class Tiles : MonoBehaviour
     }
 
     //選擇目標的路徑探索
-    private void road_seek(int X, int Y, int dis, int type, int fly_or_throw, int belong, int x_now, int y_now, int step)  //fly_or_throw , 0 = 步行， 1 = 飛行, 2 = 非投擲, 3 = 投擲
+    private void road_seek(int X, int Y, int dis, int type, int fly_or_throw, int belong, int x_now, int y_now, int step, Tile previous)  //fly_or_throw , 0 = 步行， 1 = 飛行, 2 = 非投擲, 3 = 投擲
     {    //角色初始XY座標， 可動/攻擊距離、種類， 移動或攻擊， 行走(路徑探索當前位置)位置， 回傳所需還原函數列表
         if (x_now < column && x_now >= 0 && y_now < row && y_now >= 0)
         {
@@ -93,7 +93,7 @@ public class Tiles : MonoBehaviour
             {
                 if (fly_or_throw < 2 && current_tile.occupied == 0)   //fly_or_throw < 2 表示為移動判定，且格子未被佔領則可通過
                 {
-                    Link_list<System.Func<int>> temp = new Link_list<System.Func<int>>(current_tile.action_select(1, new Color(255f, 255f, 255f, 0.35f)), null);
+                    Link_list<System.Func<int>> temp = new Link_list<System.Func<int>>(current_tile.action_select(1, new Color(255f, 255f, 255f, 0.35f), previous), null);
                     // 1表示行為種類是可移動的格子，後接其相對的淺白色格子色
                     if (R_func == null)
                     {                                                 // 建立還原函數序列，結束時執行        
@@ -112,7 +112,7 @@ public class Tiles : MonoBehaviour
                 }
                 else if (fly_or_throw >= 2 && current_tile.occupied == 1 && belong != current_tile.stander.which_side()) //fly_or_throw > 2 表示為攻擊判定，且格子被敵方佔領則可攻擊
                 {
-                    Link_list<System.Func<int>> temp = new Link_list<System.Func<int>>(current_tile.action_select(2, new Color(0.6792f, 0.1249f, 0.1249f, 0.5f)), null);
+                    Link_list<System.Func<int>> temp = new Link_list<System.Func<int>>(current_tile.action_select(2, new Color(0.6792f, 0.1249f, 0.1249f, 0.5f), previous), null);
                     // 2表示行為種類是可攻擊的格子，後接其相對的紅色格子色
                     if (R_func == null)
                     {                                                 // 建立還原函數序列，結束時執行        
@@ -131,20 +131,20 @@ public class Tiles : MonoBehaviour
 
                 }
             }
-        }
-        if (step < dis)
-        {
-
-            road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now, step + 1);
-            road_seek(X, Y, dis, type, fly_or_throw, belong, x_now, y_now - 1, step + 1);
-            road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now, step + 1);
-            road_seek(X, Y, dis, type, fly_or_throw, belong, x_now, y_now + 1, step + 1);
-            if ((type % 2) == 1)
+            if (step < dis)
             {
-                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now - 1, step + 1);
-                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now + 1, step + 1);
-                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now - 1, step + 1);
-                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now + 1, step + 1);
+
+                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now, step + 1, current_tile);
+                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now, y_now - 1, step + 1, current_tile);
+                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now, step + 1, current_tile);
+                road_seek(X, Y, dis, type, fly_or_throw, belong, x_now, y_now + 1, step + 1, current_tile);
+                if ((type % 2) == 1)
+                {
+                    road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now - 1, step + 1, current_tile);
+                    road_seek(X, Y, dis, type, fly_or_throw, belong, x_now - 1, y_now + 1, step + 1, current_tile);
+                    road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now - 1, step + 1, current_tile);
+                    road_seek(X, Y, dis, type, fly_or_throw, belong, x_now + 1, y_now + 1, step + 1, current_tile);
+                }
             }
         }
         return;
@@ -156,7 +156,7 @@ public class Tiles : MonoBehaviour
         waiter = character;
         if (R_func != null)
         {
-            while (R_func != null)                        //執行還原函式，還原地圖，並inactive
+            while (R_func != null)                        //執行還原函式，還原地圖，並inactive，作用在不同角色行動選擇切換時
             {
                 R_func.content();
                 R_func = R_func.next;
@@ -165,8 +165,9 @@ public class Tiles : MonoBehaviour
         reacted = false;
         R_func = null;       //回傳後續還原Tile狀態的函數列
         R_func_tail = null;
-        road_seek(X, Y, move, move_type, fly, belong, X, Y, 0); //fly_or_throw , 0 = 步行， 1 = 飛行, 2 = 非投擲, 3 = 投擲， 同時用來鑑別攻擊或移動
-        road_seek(X, Y, dis, dis_type, throwable + 2, belong, X, Y, 0);
+        Debug.Log(X + ", " + Y);
+        road_seek(X, Y, move, move_type, fly, belong, X, Y, 0, tile_array[Y][X].GetComponent<Tile>()); //fly_or_throw , 0 = 步行， 1 = 飛行, 2 = 非投擲, 3 = 投擲， 同時用來鑑別攻擊或移動
+        road_seek(X, Y, dis, dis_type, throwable + 2, belong, X, Y, 0, tile_array[Y][X].GetComponent<Tile>());
         await Task.Run(() =>
         {                     //等待格子點擊的響應
             while (!reacted && waiter == character)   //如果當前等待者(被點擊響應中的角色)不是函數中等待的character，表示被取代了，退出thread並返回
@@ -181,7 +182,7 @@ public class Tiles : MonoBehaviour
         }
         gameObject.SetActive(false);
         //開始移動
-        if (target.state == 1)
+        if (target.state == 1)  //state 0 是範圍外。 1是可移動位置。 2是攻擊目標。 3是技能目標。
         {
             character.current_pos.clean_stander();      //清除原先站的Tile上的角色資料
             character.set_pos(target);                  //角色重設鎖在新Tile
