@@ -1,0 +1,392 @@
+fileFormatVersion: 2
+guid: 85735539a86593d4da0f6ab69d7876aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7276273978579049182
+    second: "lava - \u8907\u88FD_0"
+  - first:
+      213: -6441419881161843990
+    second: "lava - \u8907\u88FD_1"
+  - first:
+      213: -8499460048588563853
+    second: "lava - \u8907\u88FD_2"
+  - first:
+      213: -5487858377953223879
+    second: "lava - \u8907\u88FD_3"
+  - first:
+      213: -4226922940580333034
+    second: "lava - \u8907\u88FD_4"
+  - first:
+      213: 7276380190432502191
+    second: "lava - \u8907\u88FD_5"
+  - first:
+      213: -6262028889468957948
+    second: "lava - \u8907\u88FD_6"
+  - first:
+      213: 902736189875954358
+    second: "lava - \u8907\u88FD_7"
+  - first:
+      213: -547927639161763313
+    second: "lava - \u8907\u88FD_8"
+  - first:
+      213: -481381098973106974
+    second: "lava - \u8907\u88FD_9"
+  - first:
+      213: 3721138956473674181
+    second: "lava - \u8907\u88FD_10"
+  - first:
+      213: -839731288685765942
+    second: "lava - \u8907\u88FD_11"
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 602
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda5f95d1a48af460800000000000000
+      internalID: 7276273978579049182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_1"
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 602
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea95360fba7b96a0800000000000000
+      internalID: -6441419881161843990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_2"
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 602
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a114d2e1adb0a80800000000000000
+      internalID: -8499460048588563853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_3"
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 602
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b527491e537d3b0800000000000000
+      internalID: -5487858377953223879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_4"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 312
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a72c11bf3f655c0800000000000000
+      internalID: -4226922940580333034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_5"
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 312
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa12b653b35eaf460800000000000000
+      internalID: 7276380190432502191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_6"
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 312
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40b08f517edc819a0800000000000000
+      internalID: -6262028889468957948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_7"
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 312
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2227328c9278c00800000000000000
+      internalID: 902736189875954358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_8"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 22
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a052917be5568f0800000000000000
+      internalID: -547927639161763313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_9"
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 22
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ecee12e07ac159f0800000000000000
+      internalID: -481381098973106974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_10"
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 22
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c92b7c5a2424a330800000000000000
+      internalID: 3721138956473674181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "lava - \u8907\u88FD_11"
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 22
+        width: 290
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca9a1f87dca854f0800000000000000
+      internalID: -839731288685765942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
